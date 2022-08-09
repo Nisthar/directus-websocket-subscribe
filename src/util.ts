@@ -14,6 +14,7 @@ export function parseIncomingMessage(message: Record<string, any>, schema: any):
     let msg: WebsocketMessage = { 
         type, uid: message.uid || false,
         query: message.query as Query,
+        ...message
     }
     if (message.collection) {
         const collection = message.collection.trim().toLowerCase();
